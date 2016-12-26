@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Generate your maze</title>
+</head>
+<body>
+    <h1>Please, specify width and height of your maze</h1>
+
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/look_at_your_m/" method="post">{% csrf_token %}
+        <p>Height: <input type="number" name="h"></p>
+        <p>Width: <input type="number" name="w"></p>
+        <input type="submit" value="generate">
+    </form>
+    
+</body>
+</html>
